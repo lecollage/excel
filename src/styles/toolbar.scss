@@ -1,0 +1,17 @@
+@import "common";
+
+.excel__toolbar {
+  position: absolute;
+  top: 34px;
+  right: 0;
+  left: 0;
+  height: $header-height;
+  padding: 7px 10px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid $border-color;
+
+  .button {
+    @include button(red);
+  }
+}

@@ -4,7 +4,7 @@ export class Dom {
     constructor(selector: string | HTMLElement) {
         this.$el = typeof selector === 'string'
             ? document.querySelector(selector)
-            : selector
+            : selector;
     }
 
     html(html: string): string | Dom {
@@ -52,4 +52,4 @@ $.create = (tagName: string, classes = '') => {
     }
 
     return $(el);
-}
+};

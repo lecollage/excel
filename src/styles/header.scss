@@ -9,6 +9,7 @@
   padding: 8px 4px 0;
   display: flex;
   justify-content: space-between;
+  border-bottom: 1px solid $border-color;
 
   & .input {
     margin: 0;
