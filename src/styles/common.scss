@@ -1,0 +1,177 @@
+$color-real-black: #000000;
+$color-black: #484848;
+$color-black-20: rgba(72, 72, 72, 0.2);
+$color-white: #ffffff;
+$color-light-gray: #E3E3E3;
+$color-gray: #c1c1c1;
+$color-gray-2: #9a9999;
+$color-gray-3: rgba(72, 72, 72, 0.74);
+$color-lightblue: #1fc0fc;
+$color-yellow: #FFC341;
+$color-yellow-light: #FFD701;
+
+$header-height: 34px;
+$toolbar-height: 40px;
+$formula-height: 24px;
+$info-cell-width: 40px;
+$cell-width: 120px;
+$row-height: 24px;
+$db-header-height: 64px;
+$border-color: #c0c0c0;
+
+$size-l: 1024px;
+
+$mobile: 'mobile';
+$mobile-min: 'mobile-min';
+$mobile-interval: 'mobile-interval';
+
+$tablet: 'tablet';
+$tablet-min: 'tablet-min';
+$tablet-interval: 'tablet-interval';
+
+$desktop: 'desktop';
+$desktop-min: 'desktop-min';
+$desktop-interval: 'desktop-interval';
+
+$desktop-large-min: 'desktop-lg-min';
+
+@mixin for-size($size) {
+  @if $size == $mobile {
+    @media (max-width: 639px) { @content; }
+  } @else if $size == $mobile-interval {
+    @media (min-width: 480px) and (max-width: 639px) { @content; }
+  }
+
+  @else if $size == $tablet {
+    @media (max-width: 959px) { @content; }
+  } @else if $size == $tablet-min {
+    @media (min-width: 640px) { @content; }
+  } @else if $size == $tablet-interval {
+    @media (min-width: 640px) and (max-width: 959px) { @content; }
+  }
+
+  @else if $size == $desktop {
+    @media (max-width: 1359px) { @content; }
+  } @else if $size == $desktop-min {
+    @media (min-width: 960px) { @content; }
+  } @else if $size == $desktop-interval {
+    @media (min-width: 960px) and (max-width: 1359px) { @content; }
+  }
+
+  @else if $size == $desktop-large-min {
+    @media (min-width: 1360px) { @content; }
+  }
+}
+
+$font-size-h1: 200px;
+$font-size-h1-m: 72px;
+$font-size-h2: 40px;
+$font-size-h2-m: 32px;
+$font-size-h3: 28px;
+$font-size-h3-m: 24px;
+$font-size-h4: 21px;
+$font-size-h4-m: 18px;
+$font-size-regular-m: 16px;
+$font-size-regular-s: 14px;
+$font-promo: 24px;
+$font-promo-m: 20px;
+
+@font-face {
+  font-family: "Fira Sans";
+  src: local("Fira Sans Regular"), local("FiraSans-Regular"), url("../fonts/Firasansregular.woff2") format("woff2"), url("../fonts/Firasansregular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Fira Sans";
+  src: local("Fira Sans Bold"), local("FiraSans-Bold"), url("../fonts/Firasansbold.woff2") format("woff2"), url("../fonts/Firasansbold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Montserrat";
+  src: local("Montserrat Regular"), local("Montserrat-Regular"), url("../fonts/Montserrat-Regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Montserrat";
+  src: local("Montserrat Bold"), local("Montserrat-Bold"), url("../fonts/Montserrat-Bold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+}
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Fira Sans", "Roboto", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 18px;
+  line-height: 150%;
+  background-color: $color-white;
+  min-width: 320px;
+  color: #303030;
+}
+
+*,
+::after,
+::before {
+  box-sizing: inherit;
+}
+
+@media (max-width: $size-l) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+input[type="email"],
+input[type="password"],
+input[type="tel"],
+input[type="text"],
+textarea {
+  appearance: none;
+  outline: 0;
+}
+
+@mixin button($color: green) {
+  height: 24px;
+  min-width: 24px;
+  padding: 3px;
+  text-align: center;
+  position: relative;
+  display: inline-block;
+  color: rgba(0, 0, 0, .7);
+
+  & i {
+    font-size: 18px;
+  }
+
+  &:active, &.active {
+    color: $color;
+  }
+
+  &:hover {
+    background: #eee;
+    cursor: pointer;
+  }
+}
+
+@mixin clear-list() {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
