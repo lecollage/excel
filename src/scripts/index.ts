@@ -4,7 +4,7 @@ import {ToolbarComponent} from './components/toolbar/toolbar.component';
 import {FormulaComponent} from './components/formula/formula.component';
 
 const excel = new ExcelComponent('#app', {
-    components: [
+    componentsToInstantiate: [
         HeaderComponent,
         ToolbarComponent,
         FormulaComponent

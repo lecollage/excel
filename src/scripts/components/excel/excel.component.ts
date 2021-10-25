@@ -4,20 +4,26 @@ import {ComponentFabric, ComponentTypes} from '../common/ComponentFabric';
 
 export class ExcelComponent {
     private readonly $el: Dom = null;
-    private readonly components: typeof AbstractComponent[] = [];
+    private readonly componentsToInstantiate: typeof AbstractComponent[] = [];
 
-    constructor(selector: string, options: {components: typeof AbstractComponent[]}) {
+    private components: {$el: Dom, component: AbstractComponent}[] = [];
+
+    constructor(selector: string, options: {componentsToInstantiate: typeof AbstractComponent[]}) {
         this.$el = $(selector);
-        this.components = options.components || [];
+        this.componentsToInstantiate = options.componentsToInstantiate || [];
     }
 
     getRoot() {
         const $root = $.create('div', 'excel');
 
-        this.components.forEach((Component: ComponentTypes)  => {
+        this.components = this.componentsToInstantiate.map((Component: ComponentTypes)  => {
             const $el = $.create('div', Component.className);
             const component: AbstractComponent = ComponentFabric.createComponent(Component, $el);
 
+            return {$el, component};
+        });
+
+        this.components.forEach(({$el, component})  => {
             $el.html(component.toHTML());
             $root.append($el);
         });
@@ -27,5 +33,6 @@ export class ExcelComponent {
 
     render() {
         this.$el.append(this.getRoot());
+        this.components.forEach(({component}) => component.init());
     }
 }

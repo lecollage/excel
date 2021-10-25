@@ -21,8 +21,8 @@ export class Dom {
         return this.html('');
     }
 
-    on() {
-
+    on(eventType: string, callback: () => {}) {
+        this.$el.addEventListener(eventType, callback);
     }
 
     append(node: HTMLElement | Dom) {
