@@ -2,15 +2,19 @@
 
 .excel__formula {
   position: absolute;
+  display: flex;
+  align-items: center;
   top: $header-height + $toolbar-height;
   right: 0;
   left: 0;
   height: $formula-height;
-  display: flex;
-  align-items: center;
   border-bottom: 1px solid $border-color;
 
   & .info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-height: 20px;
     font-size: 18px;
     font-style: italic;
     text-align: center;
@@ -18,8 +22,9 @@
     min-width: $info-cell-width;
   }
 
-  .input {
-    padding: 4px;
+  & .input {
+    display: flex;
+    align-items: center;
     font-size: 12px;
     outline: none;
     width: 100%;

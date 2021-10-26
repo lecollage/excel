@@ -2,10 +2,10 @@
 
 .excel__toolbar {
   position: absolute;
-  top: 34px;
+  top: $header-height;
   right: 0;
   left: 0;
-  height: $header-height;
+  height: $toolbar-height;
   padding: 7px 10px;
   display: flex;
   align-items: center;

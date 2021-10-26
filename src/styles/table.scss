@@ -1,0 +1,42 @@
+@import "common";
+
+.excel__table {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  overflow-x: auto;
+  top: $header-height + $toolbar-height + $formula-height;
+  right: 0;
+  left: 0;
+
+  & .row {
+    display: flex;
+    flex-direction: row;
+    height: 24px;
+    border-bottom: 1px solid $border-color;
+
+    & .row-header {
+      background-color: $cell-background-color;
+    }
+
+    & .row-data {
+      display: flex;
+    }
+
+    & .row-info {
+      width: 40px;
+      background-color: $cell-background-color;
+      border-right: 1px solid $border-color;
+    }
+
+    & .cell {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: inherit;
+      width: 120px;
+      border-right: 1px solid $border-color;
+    }
+  }
+}
