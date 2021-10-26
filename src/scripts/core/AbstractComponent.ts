@@ -8,4 +8,8 @@ export abstract class AbstractComponent extends DomListener {
     init() {
         this.initDOMListeners();
     }
+
+    destroy() {
+        this.removeEventListeners();
+    }
 }

@@ -25,6 +25,10 @@ export class Dom {
         this.$el.addEventListener(eventType, callback);
     }
 
+    off(eventType: string, callback: () => {}) {
+        this.$el.removeEventListener(eventType, callback);
+    }
+
     append(node: HTMLElement | Dom) {
         if (node instanceof Dom) {
             node = node.$el;

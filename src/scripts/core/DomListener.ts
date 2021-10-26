@@ -29,6 +29,15 @@ export class DomListener {
         });
     }
 
+    removeEventListeners() {
+        this.listeners.forEach(listener => {
+            const methodName = this.getMethodName(listener);
+            const method = (this as any)[methodName];
+
+            this.$root.off(methodName, method.bind(this));
+        });
+    }
+
     private getMethodName(method: string) {
         const capitalised = this.capitalise(method);
 
