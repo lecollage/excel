@@ -17,7 +17,12 @@
     border-bottom: 1px solid $border-color;
 
     & .row-header {
+      font-weight: bold;
       background-color: $cell-background-color;
+
+      & .cell {
+        color: $initial-color;
+      }
     }
 
     & .row-data {
@@ -25,6 +30,10 @@
     }
 
     & .row-info {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-weight: bold;
       width: 40px;
       background-color: $cell-background-color;
       border-right: 1px solid $border-color;
@@ -37,6 +46,7 @@
       height: inherit;
       width: 120px;
       border-right: 1px solid $border-color;
+      color: initial;
     }
   }
 }

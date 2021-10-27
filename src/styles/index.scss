@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
 @import "~normalize.css";
+@import "common";
 
 * {
   margin: 0;
@@ -14,7 +15,7 @@ body {
 
 .excel {
   position: relative;
-  color: #888;
+  color: $initial-color;
   height: 100%;
   max-width: 100%;
   font-size: .8rem;
