@@ -1,7 +1,14 @@
 import {AbstractComponent} from '../../core/AbstractComponent';
+import {Dom} from '../../core/dom';
 
 export class HeaderComponent extends AbstractComponent {
     static className = 'excel__header';
+
+    constructor($root: Dom) {
+        super($root, {
+            name: 'header',
+        });
+    }
 
     toHTML() {
         return `

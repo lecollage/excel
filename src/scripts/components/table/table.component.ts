@@ -1,10 +1,34 @@
 import {AbstractComponent} from '../../core/AbstractComponent';
+import {Dom} from '../../core/dom';
 
 export class TableComponent extends AbstractComponent {
     static className = 'excel__table';
 
+    constructor($root: Dom) {
+        super($root,  {
+            name: 'table',
+            listeners: ['click', 'mousedown', 'mousemove', 'mouseup']
+        });
+    }
+
     toHTML() {
-        return createTable();
+        return createTable(25);
+    }
+
+    onClick() {
+        console.log(`onClick >> `);
+    }
+
+    onMousedown() {
+        console.log(`onMousedown >> `);
+    }
+
+    onMousemove() {
+        console.log(`onMousemove >>  `);
+    }
+
+    onMouseup() {
+        console.log(`onMouseup >>  `);
     }
 }
 

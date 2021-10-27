@@ -1,7 +1,14 @@
 import {AbstractComponent} from '../../core/AbstractComponent';
+import {Dom} from '../../core/dom';
 
 export class ToolbarComponent extends AbstractComponent {
     static className = 'excel__toolbar';
+
+    constructor($root: Dom) {
+        super($root, {
+            name: 'toolbar',
+        });
+    }
 
     private readonly buttons = [
         'format_align_left',

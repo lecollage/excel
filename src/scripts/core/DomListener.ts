@@ -25,7 +25,9 @@ export class DomListener {
                 throw new Error(`Method ${methodName} is not implemented`);
             }
 
-            this.$root.on(methodName, method.bind(this));
+            (this as any)[methodName] = (this as any)[methodName].bind(this);
+
+            this.$root.on(listener, (this as any)[methodName]);
         });
     }
 

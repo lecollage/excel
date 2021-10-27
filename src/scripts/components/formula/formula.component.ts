@@ -5,10 +5,10 @@ export class FormulaComponent extends AbstractComponent {
     static className = 'excel__formula';
 
     constructor($root: Dom) {
-        super($root, [
-            'input',
-            'click',
-        ]);
+        super($root, {
+            name: 'formula',
+            listeners: ['input', 'click']
+        });
     }
 
     toHTML(): string {
