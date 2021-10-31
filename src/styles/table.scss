@@ -21,7 +21,23 @@
       background-color: $cell-background-color;
 
       & .cell {
+        position: relative;
         color: $initial-color;
+
+        & .column-resize-mark {
+          position: absolute;
+          width: 2px;
+          top: 0;
+          bottom: 0;
+          right: 0;
+          opacity: 0;
+          background: $color-resizer;
+
+          &:hover {
+            opacity: 1;
+            cursor: col-resize;
+          }
+        }        
       }
     }
 
@@ -50,3 +66,4 @@
     }
   }
 }
+

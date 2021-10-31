@@ -37,16 +37,6 @@ const CODES = {
     Z: 90
 };
 
-const toColumn = (col: string) => {
-    return `
-    <div class="cell">${col}</div>
-  `;
-};
-
-const toChar = (_: string, index: number) => {
-    return String.fromCharCode(CODES.A + index);
-};
-
 const createTable = (rowsCount = 15): string => {
     const colsCount = CODES.Z - CODES.A + 1;
     const rows: string[] = [];
@@ -82,4 +72,17 @@ const createRow = (content: string = '', index: number) => {
 
 const toCell = () => {
     return `<div class="cell" contenteditable="true"></div>`;
+};
+
+const toColumn = (col: string) => {
+    return `
+    <div class="cell">
+        ${col}
+        <div class='column-resize-mark'></div>
+    </div>
+  `;
+};
+
+const toChar = (_: string, index: number) => {
+    return String.fromCharCode(CODES.A + index);
 };
