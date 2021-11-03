@@ -4,6 +4,9 @@ import {Dom} from '../../core/dom';
 export class TableComponent extends AbstractComponent {
     static className = 'excel__table';
 
+    private resizer: HTMLElement = null;
+    private resizerX: number = null;
+
     constructor($root: Dom) {
         super($root,  {
             name: 'table',
@@ -19,15 +22,44 @@ export class TableComponent extends AbstractComponent {
         console.log(`onClick >> `);
     }
 
-    onMousedown() {
-        console.log(`onMousedown >> `);
+    onMousedown(event: MouseEvent) {
+        if (!event) {
+            return;
+        }
+
+        const target = event.target as HTMLElement;
+
+        if (target.dataset.type === 'column-resizer') {
+            this.resizer = target;
+            this.resizerX = this.resizer.getBoundingClientRect().x;
+
+            console.log(`onMousedown >> event: `, event);
+            console.log(`onMousedown >> event.target: `, event.target);
+            console.log(`onMousedown >> this.resizer.getBoundingClientRect();: `, this.resizer.getBoundingClientRect());
+        }
     }
 
-    onMousemove() {
-        console.log(`onMousemove >>  `);
+    onMousemove(event: MouseEvent) {
+        if (!event || !this.resizer) {
+            return;
+        }
+
+        const {x} = event;
+        const newX = x - this.resizerX;
+
+        this.resizer.style.transform = `translateX(${newX}px)`;
+        this.resizer.style.opacity = `1`;
+
+        console.log(`onMousemove >> x: ${x}; newX: ${newX}; event: `, event, this.resizer);
     }
 
     onMouseup() {
+        if (this.resizer) {
+            this.resizer.style.opacity = `0`;
+        }
+
+        this.resizer = this.resizerX = null;
+
         console.log(`onMouseup >>  `);
     }
 }
@@ -78,7 +110,7 @@ const toColumn = (col: string) => {
     return `
     <div class="cell">
         ${col}
-        <div class='column-resize-mark'></div>
+        <div class='column-resize-mark' data-type="column-resizer"></div>
     </div>
   `;
 };

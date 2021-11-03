@@ -37,7 +37,7 @@
             opacity: 1;
             cursor: col-resize;
           }
-        }        
+        }
       }
     }
 
@@ -63,6 +63,7 @@
       width: 120px;
       border-right: 1px solid $border-color;
       color: initial;
+      user-select: none;
     }
   }
 }
